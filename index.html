@@ -176,7 +176,8 @@
         <a href="#" class="fw-bold fs-4 text-decoration-none text-dark">Soft<span class="ombre-text">Dev</span></a>
         <ul class="nav gap-3 small fw-semibold">
             <li class="nav-item"><a class="nav-link text-dark" href="#work">Work</a></li>
-            <li class="nav-item"><a class="nav-link text-dark" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link text-dark" href="#details">Details</a></li>
+            <li class="nav-item"><a class="nav-link text-dark" href="#certifications">Certifications</a></li>
             <li class="nav-item"><a class="nav-link text-dark" href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -187,7 +188,7 @@
                 <h1 class="hero-title">
                     Building Dreams<br><span class="ombre-text">With Data</span>
                 </h1>
-                <p class="mt-3 opacity-75 fs-5"> Full‑Stack Developer focused on Node.js & MySQL.</p>
+                <p class="mt-3 opacity-75 fs-5">Data Science enthusiast exploring Node.js & MySQL.</p>
             </div>
             <aside class="col-lg-4 text-center text-lg-start mb-4 mb-lg-0 order-lg-2" data-aos="fade-right">
                 <div class="pfp-wrap mb-3 mx-auto mx-lg-0">
@@ -222,6 +223,57 @@
                     <i class="bi bi-node-plus-fill fs-1 mb-3"></i>
                     <h3 class="fw-bold">Node.js</h3>
                     <p class="small opacity-75">RESTful APIs, real‑time services and performant server logic.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- details and skills section -->
+        <section id="details" class="row g-4 mb-5" data-aos="fade-up">
+            <div class="col-12">
+                <div class="bento-card">
+                    <h2 class="fw-bold">Profile</h2>
+                    <p class="mt-3">I am currently a 2nd semester B.Sc. Data Science student at Kristu Jayanti College (Reg. No. 25DTSA58). My studies include C programming, RDBMS, matrix theory, and I'm learning R along with basic statistical analysis. I'm passionate about building data-driven applications and focus on creating efficient backend systems and clean database schemas while continuously learning new technologies.</p>
+                    <h3 class="mt-4">Skills</h3>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-node-plus-fill me-2"></i>Node.js / Express</li>
+                        <li><i class="bi bi-database me-2"></i>MySQL / Relational Databases</li>
+                        <li><i class="bi bi-code-slash me-2"></i>JavaScript / HTML / CSS</li>
+                        <li><i class="bi bi-arrow-repeat me-2"></i>RESTful API Design</li>
+                        <li><i class="bi bi-bar-chart me-2"></i>Data Analysis Basics</li>
+                        <li><i class="bi bi-laptop me-2"></i>C Programming</li>
+                        <li><i class="bi bi-stack me-2"></i>RDBMS Concepts</li>
+                        <li><i class="bi bi-calculator me-2"></i>Matrix Theory</li>
+                        <li><i class="bi bi-code me-2"></i>R (learning)</li>
+                        <li><i class="bi bi-graph-up me-2"></i>Basic Statistical Analysis</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- certifications section -->
+        <section id="certifications" class="row g-4 mb-5" data-aos="fade-up">
+            <div class="col-12">
+                <h2 class="fw-bold text-center mb-4">Certifications</h2>
+            </div>
+            <div class="col-md-4" data-aos="fade-right">
+                <div class="bento-card h-100">
+                    <h6 class="text-uppercase opacity-50 small mb-2">Certificate</h6>
+                    <h2 class="fw-bold">Front End and Web Development Workflow</h2>
+                    <p class="mt-3">Issued by Infosys</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up">
+                <div class="bento-card h-100">
+                    <h6 class="text-uppercase opacity-50 small mb-2">Certificate</h6>
+                    <h2 class="fw-bold">Digital Engineering</h2>
+                    <p class="mt-3">Issued by Nasscom</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-left">
+                <div class="bento-card h-100">
+                    <h6 class="text-uppercase opacity-50 small mb-2">Certificate</h6>
+                    <h2 class="fw-bold">Process Mining</h2>
+                    <p class="mt-3">Issued by Celonis</p>
                 </div>
             </div>
         </section>
@@ -266,9 +318,16 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
                 });
-                alert("The record has been written to MySQL successfully! ✨");
+                const data = await response.json();
+                if (response.ok) {
+                    alert(data.message || "Message saved and email sent! ✨");
+                } else if (data.status === "Saved") {
+                    alert("Saved to DB but email failed.");
+                } else {
+                    throw new Error('Server error');
+                }
             } catch (err) {
-                alert("Database connection error! Check your server.");
+                alert("There was a problem sending your message. Check your server.");
             }
         };
     </script>
