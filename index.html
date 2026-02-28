@@ -332,7 +332,7 @@ document.getElementById('contactForm').onsubmit = async (e) => {
             alert("✨ Success! Message saved to MySQL and Email sent!");
             document.getElementById('contactForm').reset();
         } else {
-            alert("Data saved to DB,email is sent, thank you for reaching out!");
+            alert("Data saved to DB, email is sent, thank you for reaching out!");
         }
     } catch (err) {
         alert("Connection error. Ensure your Node.js server is running on Port 5000.");
@@ -340,4 +340,5 @@ document.getElementById('contactForm').onsubmit = async (e) => {
 };
     </script>
 </body>
+
 </html>
