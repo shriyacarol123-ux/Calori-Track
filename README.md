@@ -16,9 +16,9 @@ A high-fidelity, aesthetic portfolio built to demonstrate the seamless integrati
 ### ⚡ The Data Handshake
 This project features a custom-built API endpoint that captures contact form submissions and locks them into a local MySQL table in real-time, proving a successful connection between the client-side design and server-side storage.
 
-Linting & Quality: Mention that the project uses ESLint to maintain high code standards.
+Linting & Quality: The project uses ESLint to maintain high code standards.
 
-Scripts: Briefly list how to run the project:
+Scripts:How to run the project:
 
 npm start: Launches the server.
 
