@@ -25,3 +25,12 @@ npm start: Launches the server.
 npm run lint: Runs quality checks.
 
 npm test: Verifies the workflow is ready for hosting.
+
+📧 Automated Email Notifications
+This project features a fully integrated email alert system using Nodemailer.
+
+Submission: User details are captured via the glassmorphism contact form.
+
+Backend Action: The Node.js server processes the request and sends a formatted email via SMTP.
+
+Result: Real-time email notifications are sent for every successful "Data Handshake," ensuring instant lead tracking and communication.
