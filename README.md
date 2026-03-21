@@ -1,45 +1,33 @@
-# ✨ Elite Full-Stack Portfolio 2026
+🥗 NutriTrack: Building Health With Data
+NutriTrack is a full-stack health-tech application designed for personal nutritional accountability. By bridging the gap between daily eating habits and data science, NutriTrack helps users move from "guessing" their health to "knowing" their data.
 
-A high-fidelity, aesthetic portfolio built to demonstrate the seamless integration between a **Node.js** backend and a **MySQL** relational database.
+🎯 Project Overview
+NutriTrack is designed to provide a seamless Data Pipeline for tracking caloric intake across different life stages. Whether for a student managing a busy schedule or a professional tracking long-term wellness, this app provides real-time feedback and persistent storage.
 
-### 🎀 Key Features
-- **Frontend Architecture:** Glassmorphism, Ombre gradients, and AOS (Animate On Scroll) library for a fluid user journey.
-- **Backend Logic:** A dedicated Node.js Express server handling secure RESTful API requests.
-- **Database Integrity:** A MySQL relational structure designed for high-performance data persistence and sanitization.
+💡 Why NutriTrack?
+Precision: Replaces vague estimations with an objective "Daily Calorie Speedometer."
 
-- 📧 Automated Email Notifications
-This project features a fully integrated email alert system using Nodemailer.
+Accountability: Provides immediate feedback to help users stay within their nutritional goals.
 
-Submission: User details are captured via the glassmorphism contact form.
+Data Integrity: Every entry is stored in a structured format, ready for deep statistical analysis.
 
-Backend Action: The Node.js server processes the request and sends a formatted email via SMTP.
+👥 Target Audience
+NutriTrack is an inclusive tool designed for adults (18+) at various life stages:
 
-Result: Real-time email notifications are sent for every successful "Data Handshake," ensuring instant lead tracking and communication.
+Students (18-25): Managing energy levels during high-stress exam periods.
 
+Professionals (26-50): Maintaining metabolic health and weight management.
 
-### 🛠️ Tech Stack
-- **Interface:** HTML5, CSS3, JavaScript (ES6+), Bootstrap 5
-- **Animations:** AOS.js, CSS Keyframes
-- **Environment:** Node.js, Express, Cors
-- **Database:** MySQL Workbench (RDBMS)
+Seniors (50+): Monitoring specific dietary needs and keeping a history for healthcare providers.
 
-- ⚙️ DevOps & Quality Control
-Testing: Automated scripts via npm test to ensure deployment readiness.
+🛠️ The Tech Stack (The Ecosystem)
+The project is built using a Three-Tier Architecture:
 
-Linting: Professional code standards enforced using ESLint.
+Frontend (The Logger): HTML5, CSS3, and JavaScript (AOS for animations). Provides the user interface for real-time logging.
 
-CI/CD: Fully automated pipeline from GitHub to live hosting, ensuring real-time updates and stable releases.
+Backend (The Brain): Node.js & Express. Handles API routing and processes incoming meal data.
 
-### ⚡ The Data Handshake
-This project features a custom-built API endpoint that captures contact form submissions and locks them into a local MySQL table in real-time, proving a successful connection between the client-side design and server-side storage.
+Database (The Vault): MySQL. Ensures all health logs are stored permanently with accurate timestamps.
 
-Linting & Quality: The project uses ESLint to maintain high code standards.
-
-Scripts:How to run the project:
-
-npm start: Launches the server.
-
-npm run lint: Runs quality checks.
-
-npm test: Verifies the workflow is ready for hosting.
+Analysis (Future Scope): R-Studio. Used for processing the stored SQL data into visual health trends.
 
