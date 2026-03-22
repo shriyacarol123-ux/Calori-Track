@@ -330,45 +330,56 @@
     <footer class="py-5 text-center opacity-50">
         <p class="small">Crafted with  Node.js + MySQL | Shriya Grace Binu |2026</p>
     </footer>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000 });
         let currentTotal = 0;
-   document.getElementById('nutriForm').onsubmit = async (e) => {
-    e.preventDefault(); 
 
-    // Create the data object to send
-    const payload = {
-        name: document.getElementById('userName').value,
-        meal: document.getElementById('mealName').value,
-        calories: document.getElementById('calories').value
-    };
+        document.getElementById('nutriForm').onsubmit = async (e) => {
+            e.preventDefault(); 
 
-    try {
-        // Send data to the backend
-        const response = await fetch('http://localhost:5000/log-meal', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-        });
+            // 1. Grab values
+            const calorieInput = document.getElementById('calories');
+            const enteredCalories = parseInt(calorieInput.value);
+            const userName = document.getElementById('userName').value;
+            const mealName = document.getElementById('mealName').value;
 
-        if (response.ok) {
-            // Update the Total Calories Box
-            const calorieInput = document.getElementById('calories').value; 
-            currentTotal += parseInt(calorieInput);
-            document.getElementById('total-calories').innerText = currentTotal;
+            const payload = {
+                name: userName,
+                meal: mealName,
+                calories: enteredCalories
+            };
 
-            alert("Meal Logged Successfully! Daily total updated.");
-            document.getElementById('nutriForm').reset(); 
-        } else {
-            alert("Server error. Please check your backend.");
-        }
+            try {
+                const response = await fetch('http://localhost:5000/log-meal', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
 
-    } catch (err) {
-        console.error(err);
-        alert("Connection failed. Make sure the Node.js server is running!");
-    }
-};
-</script>
+                if (response.ok) {
+                    // 2. Update the screen (This ensures it's NOT 0)
+                    document.getElementById('total-calories').innerText = enteredCalories;
+                    
+                    const totalDisplay2 = document.getElementById('total-calories-display');
+                    if (totalDisplay2) {
+                        totalDisplay2.innerText = enteredCalories;
+                    }
+
+                    // 3. Success Alert
+                    alert("Meal Logged Successfully! Daily total updated.");
+
+                    // 4. Reset for the next student
+                    document.getElementById('nutriForm').reset(); 
+                } else {
+                    alert("Server error. Check your MySQL connection.");
+                }
+
+            } catch (err) {
+                console.error(err);
+                alert("Connection failed. Is node server.js running?");
+            }
+        }; // This closing bracket was missing or misplaced!
+    </script>
 </body>
 </html>
