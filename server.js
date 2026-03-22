@@ -24,26 +24,28 @@ db.connect(err => {
 });
 
 // 2. NutriTrack Meal Logging Route
+// In your server.js
 app.post('/log-meal', (req, res) => {
     const { name, meal, calories } = req.body;
-    
-    // Ensure 'user_name', 'food_name', and 'calories' match your MySQL table columns
-    const sql = 'INSERT INTO meals (user_name, food_name, calories) VALUES (?, ?, ?)';
+
+    // This is the EXACT place where the "Addition" logic lives
+    const sql = `
+        INSERT INTO meals (user_name, food_name, calories) 
+        VALUES (?, ?, ?) 
+        ON DUPLICATE KEY UPDATE 
+        calories = calories + VALUES(calories),
+        food_name = VALUES(food_name)`;
 
     db.query(sql, [name, meal, calories], (err, result) => {
         if (err) {
             console.error("Database Error:", err);
-            return res.status(500).json({ status: "Error", message: "DB Sync Failed" });
+            return res.status(500).json({ error: "Database Sync Failed" });
         }
         
-        console.log("Data successfully committed to MySQL for:", name);
-        res.status(200).json({ 
-            status: "Success", 
-            message: "Meal logged and synced with MySQL!" 
-        });
+        console.log(`Data processed for: ${name}`);
+        res.status(200).json({ message: "Success! Calories merged in MySQL." });
     });
 });
-
 // 3. Start Server on Port 5000
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
