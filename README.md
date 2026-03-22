@@ -1,4 +1,4 @@
-🥗 NutriTrack: Real-Time Calorie Intelligence
+🥗 CaloriTrack: Real-Time Calorie Intelligence
 NutriTrack is a specialized health-data interface built to provide instant feedback on caloric intake. By connecting a responsive frontend to a MySQL persistence layer, it ensures that your daily energy tracking is accurate and stored securely.
 
 🎯 Project Focus: The Calorie Speedometer
